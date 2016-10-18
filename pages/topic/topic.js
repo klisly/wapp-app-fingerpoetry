@@ -6,7 +6,7 @@ Page({
   data: {   
     userInfo:null,
     topics: [
-      {
+    {
         "_id": "57a8b5e9b6a37f4721200c45",
         "name": "美文",
         "articleNum": 0,
@@ -42,7 +42,6 @@ Page({
         "articleCount": 7029,
         "followerCount": 2
     },
-    
     {
         "_id": "57a8b5efb6a37f4721200c46",
         "name": "诗歌",
@@ -87,12 +86,11 @@ Page({
     interval: 3000,
     duration: 1000,
     curPage: 0,
-    curPageSize: 10,
     hasMore:true,
     windowHeight:1024,
     loadingMore:false,
     refreshData:false,
-    pageSize:10,
+    pageSize:20,
     footerIconColor:null,
   },
   //事件处理函数
@@ -102,9 +100,7 @@ Page({
       if(tmp != this.data.selectedTopic){
         this.setData({ selectedTopic:tmp, curPage:0, hasMore:true, contents:[]});
         this.refreshData();
-      } else {
-        this.setData({ selectedTopic:tmp, curPage:this.data.curPage+1, hasMore:true});
-      }
+      } 
   },
   loadData:function(){
     this.data["loadingMore"] = true;
@@ -121,6 +117,11 @@ Page({
 
         if (res.data.code == 200) {
           var tmp = that.data.contents;
+          if(res.data.data.length == 0){
+            that.setData({ hasMore:false});
+          } else{
+            that.setData({ hasMore:true});
+          }
           for(var index = 0; index < res.data.data.length; index++){
             tmp.push(res.data.data[index]);
           }
@@ -135,15 +136,18 @@ Page({
     })
   },
   loadingMore:function(){
-    if(!this.data["loadingMore"]){
-      this.loadData();
+    if(this.data["loadingMore"]){
+     return;
     }
+    this.loadData();
   },
   refreshData:function(){
-    this.setData({curPage:0, contents:[]});
-    this.loadData();
-    this.data["refreshData"] = true;
+    if(this.data["refreshData"]){
+      return;
+    }
+    this.setData({curPage:0, refreshData:true, hasMore:true, contents:[]});
     updateRefreshBall.call(this);
+    this.loadData();
   },
   onReady: function () {
     this.refreshAnim = wx.createAnimation({duration: rotate, delay:0});

@@ -31,11 +31,6 @@
       "iconPath": "images/tab_dynamic_normal.png",
       "selectedIconPath": "images/tab_dynamic_selected.png",
       "text": "我的"
-    },{
-      "pagePath": "pages/logs/logs",
-      "iconPath": "images/tab_dynamic_normal.png",
-      "selectedIconPath": "images/tab_dynamic_selected.png",
-      "text": "日志"
     }]
   }
 }

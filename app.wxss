@@ -84,3 +84,28 @@ page {
 .hidden{
   display: none;
 }
+
+.more{
+    width: 32px;
+    height: 44px;
+    margin-bottom: 2px;
+    display: flex;
+    flex-direction: column;
+    font-size: 0.8rem;
+    justify-content: center;
+    align-items: center;
+    background-color: #1E90FF;
+    border:2px solid #1E90FF;
+}
+
+.more-img{
+    width: 4px;
+    height: 24px;
+    padding-right: 24px;
+    padding-left: 24px;
+    display: flex;
+    flex-direction: column;
+    font-size: 0.8rem;
+    justify-content: center;
+    align-items: center;
+}
