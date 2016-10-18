@@ -86,7 +86,7 @@ page {
 }
 
 .more{
-    width: 32px;
+    width: 24px;
     height: 44px;
     margin-bottom: 2px;
     display: flex;

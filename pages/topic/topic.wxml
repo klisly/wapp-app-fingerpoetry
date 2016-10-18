@@ -10,7 +10,7 @@
     </view>
 </template>
 <view class="float-action" animation="{{refreshAnim}}" bindtap="refreshData" bindtouchmove="refreshData">
-    <image style="width: 28px; height: 28px;" mode="aspectFit" src="../../images/refresh.png"></image>
+    <image style="width: 20px; height: 20px;" mode="aspectFit" src="../../images/refresh.png"></image>
 </view>
 <!--<view class="container">-->
   <view class="flex-wrp">
